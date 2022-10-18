@@ -1,0 +1,109 @@
+﻿.Contenedor {
+    width: 100%;
+    height: 98vh;
+    background-image: url('FondoReserva.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Card {
+    position: absolute;
+    display: flex;
+    width: 80%;
+    height: 90%;
+    border-radius: 30px;
+    top: 5%;
+    left: 10%;
+    background: #888;
+    opacity: .8;
+    box-shadow: 6px 6px 20px #777;
+}
+
+.Imagen {
+    background-image: url('CardReserva.jpg');
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 30px 0 0 30px;
+}
+
+.Datos {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h3 {
+    width: 100%;
+    font-size: x-large;
+    text-align: center;
+    background-color: #000;
+    margin: 0;
+    border-radius: 0 30px 0 0;
+    padding-top: 15px;
+    color: #fff;
+}
+
+.col-md-12 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    color: #000;
+}
+
+.col-md-6 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    color: #000;
+}
+
+input {
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #000;
+    box-shadow: 3px 3px 10px #000;
+}
+
+select {
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #000;
+    box-shadow: 3px 3px 10px #000;
+}
+
+p {
+    color: #00f;
+    font-weight: bold;
+    margin: 0;
+    font-size: x-large;
+}
+
+.Tabla {
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 35px;
+}
+
+button {
+    width: 200px;
+    height: 45px;
+    position: relative;
+    top: 15%;
+    border-radius: 23px;
+    background: #00f;
+    color: #fff;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 10px #000;
+}
