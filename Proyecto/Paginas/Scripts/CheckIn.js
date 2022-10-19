@@ -1,6 +1,6 @@
-﻿var oTabla = $('#tblHuespedes').DataTable();
+﻿var oTabla = $('#tblGuest').DataTable();
 $(document).ready(function () {
-    $('#tblHuespedes tbody').on('click', 'tr', function () {
+    $('#tblGuest tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         } else {
@@ -24,13 +24,10 @@ $(document).ready(function () {
 });
 function EditarFila(DatosFila) {
     $("#txtIdReserva").val(DatosFila[0]);
-    $("#txtNombrePersona").val(DatosFila[1]);
-    $("#txtFechaInicio").val(DatosFila[2]);
-    $("#txtFechaFin").val(DatosFila[3]);
-    $("#txtHabitacion").val(DatosFila[4]);
-    $("#txtValor").val(DatosFila[5]);
+    $("#txtNombreHuespede").val(DatosFila[1]);
+    $("#txtSexo").val(DatosFila[2]);
+    $("#txtTipo").val(DatosFila[2]);
 }
-
 function LlenarComboSexo() {
     LlenarComboControlador("../Comunes/ControladorCombos.ashx", "SEXO", null, "#cboSexoHuespede");
 }
@@ -39,25 +36,23 @@ function LlenarComboTipoDePersonas() {
     LlenarComboControlador("../Comunes/ControladorCombos.ashx", "TIPODEPERSONA", null, "#cboTipoPersona");
 }
 function LlenarGridGuest() {
-    LlenarGridControlador("../Comunes/ControladorGrids.ashx", "TABLAGUEST", $("#txtIdReserva").val() , "#tblGuest");
+    LlenarGridControlador("../Comunes/ControladorGrids.ashx", "TABLAGUEST", null, "#tblGuest");
 }
 
 function ProcesarComandos(Comando) {
     var IdReserva = $("#txtIdReserva").val();
-    var NombrePersona = $("#txtNombrePersona").val();
     var NombreHuespede = $("#txtNombreHuespede").val();
     var DocumentoPersona = $("#txtDocumentoPersona").val();
     var Sexo = $("#cboSexoHuespede").val();
     var TipoPersona = $("#cboTipoPersona").val();
 
-    if (Comando == "Confirmar" || Comando == "RegistrarHuesped") {
+    if (Comando == "Confirmar") {
         NombrePersona = "";
         NombreHuesped = "";
         DocumentoPersona = "";
     }
     var DatosReserva = {
         IdReserva: IdReserva,
-        NombrePersona: NombrePersona,
         NombreHuespede: NombreHuespede,
         DocumentoPersona: DocumentoPersona,
         Sexo: Sexo,
@@ -69,18 +64,10 @@ function ProcesarComandos(Comando) {
         url: "../Controladores/ReservaControlador.ashx",
         contentType: "json",
         data: JSON.stringify(DatosReserva),
-        success: function (RespuestaProducto) {
-            if (Comando != "Confirmar") {
-                //Hay que procesar la respuesta para identificar si hay un error
-                $("#dvMensaje").addClass("alert alert-success");
-                $("#dvMensaje").html(RespuestaProducto);
-                LlenarGridReserva();
-            }
-            else {
-                alert(RespuestaProducto.NombrePersona);
-                $("#txtNombrePersona").val(RespuestaProducto.NombrePersona);
-                $("#txtDocumentoPersona").val(RespuestaProducto.DocumentoPersona);
-            }
+        success: function (Respuesta) {
+            $("#dvMensaje").addClass("alert alert-success");
+            $("#dvMensaje").html(Respuesta);
+            LlenarGridGuest();
         },
         error: function (RespuestaError) {
             $("#dvMensaje").addClass("alert alert-danger");

@@ -41,14 +41,7 @@ namespace Proyecto.Controladores
                 case "ELIMINAR":
                     return oReserva.Eliminar();
                 case "CONFIRMAR":
-                    if (oReserva.Consultar())
-                    {
-                        return JsonConvert.SerializeObject(reserva.IdReserva);
-                    }
-                    else
-                    {
-                        return oReserva.reserva.Error;
-                    }
+                    return oReserva.CheckIn();
                 case "REGISTRARHUESPED":
                     return oReserva.RegistrarHuesped();
                 default:

@@ -23,7 +23,10 @@ namespace pAplicacionesWEB.Comunes
             switch (oGrid.Comando.ToUpper())
             {
                 case "TABLAGUEST":
-                    Respuesta = LlenarGrid(oGrid, "Huespedes_Grid",);
+                    Respuesta = LlenarGrid(oGrid, "Huespedes_Grid");
+                    break;
+                case "TABLARESERVAS":
+                    Respuesta = LlenarGrid(oGrid, "Reserva_Grid");
                     break;
                 default:
                     Respuesta = "Sin definir";
@@ -32,7 +35,7 @@ namespace pAplicacionesWEB.Comunes
             context.Response.ContentType = "application/json";
 
             context.Response.Write(Respuesta);
-            //JsonConvert.SerializeObject(Cliente);
+            //JsonConvert.SerializeObject();
         }
         private string LlenarGrid(viewGrid oGrid, string SQL)
         {

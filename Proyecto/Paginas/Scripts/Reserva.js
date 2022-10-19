@@ -9,6 +9,13 @@ $(document).ready(function () {
         }
     });
 
+    $("#btnCheckIn").click(function () {
+        window.location.replace('/Paginas/CheckIn.html');
+    });
+    $("#btnCheckOut").click(function () {
+        window.location.replace('/Paginas/CheckIn.html');
+
+    });
     $("#btnReservar").click(function () {
         ProcesarComandos("Reservar");
     });

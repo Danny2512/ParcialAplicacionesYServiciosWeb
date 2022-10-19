@@ -77,7 +77,7 @@ namespace Proyecto.Clases
                 return reserva.Error;
             }
         }
-        public bool CheckIn()
+        public string CheckIn()
         {
             string SQL = "CheckIn_Reserva";
             clsConexion oConexion = new clsConexion();
@@ -86,12 +86,12 @@ namespace Proyecto.Clases
             oConexion.AgregarParametro("@IdReserva", reserva.IdReserva);
             if (oConexion.EjecutarSentencia())
             {
-                return Consultar();
+                return "La reserva #"+reserva.IdReserva+" fue confirmada con éxito.";
             }
             else
             {
                 reserva.Error = oConexion.Error;
-                return false;
+                return reserva.Error;
             }
         }
         public bool Consultar()
@@ -137,7 +137,7 @@ namespace Proyecto.Clases
             oConexion.AgregarParametro("@IdReserva", reserva.IdReserva);
             oConexion.AgregarParametro("@IdTipoPersona", reserva.TipoPersona);
             oConexion.AgregarParametro("@IdSexo", reserva.Sexo);
-            oConexion.AgregarParametro("@Nombre", reserva.NombrePersona);
+            oConexion.AgregarParametro("@Nombre", reserva.NombreHuespede);
             if (oConexion.EjecutarSentencia())
             {
                 return "Se insertó el huesped en la base de datos";
