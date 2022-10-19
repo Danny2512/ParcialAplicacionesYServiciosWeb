@@ -39,7 +39,7 @@ function LlenarComboTipoDePersonas() {
     LlenarComboControlador("../Comunes/ControladorCombos.ashx", "TIPODEPERSONA", null, "#cboTipoPersona");
 }
 function LlenarGridGuest() {
-    LlenarGridControlador("../Comunes/ControladorGrids.ashx", "TABLAGUEST", null, "#tblGuest");
+    LlenarGridControlador("../Comunes/ControladorGrids.ashx", "TABLAGUEST", $("#txtIdReserva").val() , "#tblGuest");
 }
 
 function ProcesarComandos(Comando) {

@@ -23,7 +23,7 @@ namespace pAplicacionesWEB.Comunes
             switch (oGrid.Comando.ToUpper())
             {
                 case "TABLAGUEST":
-                    Respuesta = LlenarGrid(oGrid, "Huespedes_Grid");
+                    Respuesta = LlenarGrid(oGrid, "Huespedes_Grid",);
                     break;
                 default:
                     Respuesta = "Sin definir";
