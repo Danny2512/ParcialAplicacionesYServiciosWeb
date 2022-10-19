@@ -22,8 +22,8 @@ namespace pAplicacionesWEB.Comunes
 
             switch (oGrid.Comando.ToUpper())
             {
-                case "TABLARESERVAS":
-                    Respuesta = LlenarGrid(oGrid, "Reserva_Grid");
+                case "TABLAGUEST":
+                    Respuesta = LlenarGrid(oGrid, "Huespedes_Grid");
                     break;
                 default:
                     Respuesta = "Sin definir";

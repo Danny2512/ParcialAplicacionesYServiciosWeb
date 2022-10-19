@@ -12,8 +12,11 @@ $(document).ready(function () {
     $("#btnReservar").click(function () {
         ProcesarComandos("Reservar");
     });
-    $("#btnConsultar").click(function () {
-        ProcesarComandos("Consultar");
+    $("#btnActualizar").click(function () {
+        ProcesarComandos("Actualizar");
+    });
+    $("#btnEliminar").click(function () {
+        ProcesarComandos("Eliminar");
     });
     LlenarComboPlanAlimentacion();
     LlenarComboHabitacion();
@@ -43,6 +46,7 @@ function LlenarGridReserva() {
 }
 
 function ProcesarComandos(Comando) {
+    var IdReserva = $("#txtIdReserva").val();
     var NombrePersona = $("#txtNombrePersona").val();
     var DocumentoPersona = $("#txtDocumentoPersona").val();
     var NumeroNinos = $("#txtNumNinos").val();
@@ -52,8 +56,12 @@ function ProcesarComandos(Comando) {
     var PlanAlimentancion = $("#cboPlanAlim").val();
     var Habitacion = $("#cboHabitacion").val();
 
-
+    if (Comando == "Eliminar") {
+        NombrePersona = "";
+        DocumentoPersona = "";
+    }
     var DatosReserva = {
+        IdReserva: IdReserva,
         NombrePersona: NombrePersona,
         DocumentoPersona: DocumentoPersona,
         NumeroNinos: NumeroNinos,

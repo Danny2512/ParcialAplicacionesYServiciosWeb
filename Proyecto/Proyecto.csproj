@@ -172,9 +172,11 @@
     <Content Include="Paginas\Estilos\login.css" />
     <Content Include="Paginas\Estilos\Reserva.css" />
     <Content Include="Paginas\HotelHome.html" />
+    <Content Include="Paginas\CheckIn.html" />
     <Content Include="Paginas\Reserva.html" />
     <Content Include="Paginas\Scripts\login.js" />
     <Content Include="Controladores\loginControlador.ashx" />
+    <Content Include="Paginas\Scripts\CheckIn.js" />
     <Content Include="Paginas\Scripts\Reserva.js" />
     <Content Include="Scripts\adminlte.js" />
     <Content Include="Scripts\adminlte.min.js" />

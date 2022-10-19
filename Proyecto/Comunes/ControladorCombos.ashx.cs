@@ -25,6 +25,12 @@ namespace pAplicacionesWEB.Comunes
                 case "HABITACION":
                     Respuesta = LlenarCombo(vCombo, "Habitacion_LlenarCombo");
                     break;
+                case "SEXO":
+                    Respuesta = LlenarCombo(vCombo, "Sexo_LlenarCombo");
+                    break;
+                case "TIPODEPERSONA":
+                    Respuesta = LlenarCombo(vCombo, "TipoDePersona_LlenarCombo");
+                    break;
                 default:
                     Respuesta = "Comando sin definir";
                     break;

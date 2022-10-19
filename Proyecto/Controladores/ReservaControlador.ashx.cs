@@ -36,7 +36,21 @@ namespace Proyecto.Controladores
             {
                 case "RESERVAR":
                     return oReserva.Insertar();
-
+                case "ACTUALIZAR":
+                    return oReserva.Actualizar();
+                case "ELIMINAR":
+                    return oReserva.Eliminar();
+                case "CONFIRMAR":
+                    if (oReserva.Consultar())
+                    {
+                        return JsonConvert.SerializeObject(reserva.IdReserva);
+                    }
+                    else
+                    {
+                        return oReserva.reserva.Error;
+                    }
+                case "REGISTRARHUESPED":
+                    return oReserva.RegistrarHuesped();
                 default:
                     return "No se ha definido el comando";
             }
